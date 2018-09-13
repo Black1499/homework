@@ -13,7 +13,7 @@
 8. 把city和district更换成lagou_city的id时，我们要考虑一个问题，就是当district的字段为空时，我们获得id就是city（城市）的id，如果district(地区)
 字段不为空时，我们获得的id就是district(地区)的id,这是两种截然不同的条件，所以我们可分开查询。
 9. 当lagou表中district为空时,我们可以把lagou表和lagou_city表连接查询，需要获得的是city（城市）的id,但是条件限制一定要确定清楚。首先肯定是lagou和lagou_city中
-的district（地区）的值一定是为空的。其次我们lagou_city表中的所有的城市都带有“市”，而lagou表中的城市则不带“市”，这也是一个要解决的问题（使用**like**关键词）。所以两个表连接查询的条件这些。
+的district（地区）的值一定是为空的。其次我们lagou_city表中的所有的城市都带有“市”，而lagou表中的城市则不带“市”，这也是一个要解决的问题（使用**like**关键词）。所以当前两个表连接查询的条件就是要解决这些问题。
 
 10. 当lagou表中的district不为空时，我们需要获得是district的id。这时lagou表和lagou_city表的连接条件就是二者的city（城市）相同，以及district(区县)相同。
 还有值得注意的一点便是二者表中的字段district(地区)都不能为空，不然的会产生数据的混淆无法准确得出district(区)的id,可能会拿到city（城市）的id。
